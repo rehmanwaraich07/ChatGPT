@@ -8,6 +8,16 @@ const openai = new OpenAIApi(configuration);
 
 export const runtime = "edge";
 
+export async function OPTIONS() {
+  return new Response(null, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
+
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
@@ -17,12 +27,14 @@ export async function POST(req: Request) {
   });
 
   const result = await response.json();
-  console.log(result);
 
   return new Response(
     JSON.stringify({ content: result.choices[0]?.message?.content || "" }),
     {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     }
   );
 }
