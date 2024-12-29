@@ -1,3 +1,6 @@
-import { openai } from "@ai-sdk/openai";
+import OpenAI from "openai";
 
-export { openai };
+export const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+  dangerouslyAllowBrowser: true,
+});
