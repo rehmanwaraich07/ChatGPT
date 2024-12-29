@@ -1,7 +1,9 @@
+"use client";
 import Link from "next/link";
 import { Menu, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./toggle-mode";
+import React from "react";
 
 const Navbar = () => {
   return (
@@ -22,6 +24,10 @@ const Navbar = () => {
         <Button
           variant="outline"
           className="flex items-center space-x-2 text-sm font-medium bg-background hover:bg-secondary border-muted-foreground/20"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.reload();
+          }}
         >
           <Plus className="h-4 w-4" />
           <span>New chat</span>

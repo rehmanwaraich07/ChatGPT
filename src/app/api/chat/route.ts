@@ -1,26 +1,15 @@
-import { Configuration, OpenAIApi } from "openai-edge";
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
-
-const openai = new OpenAIApi(configuration);
-
-export const runtime = "edge";
+import { openai } from "@/lib/openai";
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  const response = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
     messages,
   });
 
-  const result = await response.json();
-  console.log(result);
-
   return new Response(
-    JSON.stringify({ content: result.choices[0]?.message?.content || "" }),
+    JSON.stringify({ content: response.choices[0]?.message?.content || "" }),
     {
       headers: { "Content-Type": "application/json" },
     }
