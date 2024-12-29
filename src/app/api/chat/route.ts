@@ -7,6 +7,7 @@ export async function POST(req: Request) {
     model: "gpt-4o-mini",
     messages,
   });
+  console.log(response);
 
   return new Response(
     JSON.stringify({ content: response.choices[0]?.message?.content || "" }),
