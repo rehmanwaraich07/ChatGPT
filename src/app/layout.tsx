@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ChatGPT Clone",
+  title: "ChatGPT",
   description: "A ChatGPT clone built with Next.js and Shadcn",
 };
 
