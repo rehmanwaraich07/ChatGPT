@@ -42,6 +42,8 @@ export default function Home() {
     }
   };
 
+  console.log({ messages });
+
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
       <div className="flex-1 overflow-y-auto">
