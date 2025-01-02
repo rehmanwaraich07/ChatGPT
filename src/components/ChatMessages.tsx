@@ -67,7 +67,7 @@ export function ChatMessages({ messages }: ChatMessagesProps) {
   if (!messages.length) {
     return (
       <div className="flex h-full items-center justify-center bg-gray-100 dark:bg-gray-800 p-6 rounded-md">
-        <p className="text-muted-foreground text-lg font-medium">
+        <p className="text-muted-foreground text-lg font-medium text-center">
           No messages yet. Start a conversation!
         </p>
       </div>
