@@ -7,17 +7,17 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-10 flex items-center justify-between p-2 bg-background border-b">
+    <nav className="sticky top-0 z-10 flex items-center justify-between p-3 bg-background border-b">
       <div className="flex items-center space-x-2">
-        <Button
+        {/* <Button
           variant="ghost"
           size="icon"
           className="text-muted-foreground hover:text-foreground hover:bg-secondary"
         >
           <Menu className="h-5 w-5" />
-        </Button>
+        </Button> */}
         <Link href="/" className="font-semibold text-lg text-foreground">
-          ChatGPT
+          ProGini
         </Link>
       </div>
       <div className="flex items-center space-x-2">

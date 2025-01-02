@@ -75,18 +75,18 @@ export function ChatMessages({ messages }: ChatMessagesProps) {
   }
 
   return (
-    <div className="flex-1 space-y-4 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-900 rounded-lg shadow-lg">
+    <div className="max-w-3xl mx-auto flex-1 space-y-4 overflow-y-auto p-4 rounded-lg">
       {displayedMessages.map((message, index) => (
         <div
           key={index}
           className={cn(
-            "flex w-full items-start gap-4 p-4 rounded-lg shadow-sm transition-transform hover:scale-[1.02]",
+            "flex w-full items-start gap-4 p-4 rounded-lg shadow-md transition-transform",
             message.role === "user"
               ? "bg-blue-100 text-blue-900 dark:bg-blue-800 dark:text-blue-50"
               : "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
           )}
         >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800 shadow">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800">
             {message.role === "user" ? (
               <UserRound className="h-6 w-6 text-blue-500 dark:text-blue-300" />
             ) : (
@@ -95,7 +95,7 @@ export function ChatMessages({ messages }: ChatMessagesProps) {
           </div>
           <div className="flex-1 space-y-1 overflow-hidden text-left">
             <p className="font-semibold text-sm">
-              {message.role === "user" ? "You" : "ChatGPT"}
+              {message.role === "user" ? "You" : "ProGini"}
             </p>
             <div className="prose prose-sm break-words dark:prose-invert">
               {message.content}
