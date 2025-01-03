@@ -1,48 +1,73 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { SendHorizontal } from "lucide-react";
+import { Message } from "./ChatMessages";
 
 interface ChatInputProps {
   sendMessage: (input: string) => void;
+  messages?: Message[];
 }
 
-export function ChatInput({ sendMessage }: ChatInputProps) {
+export function ChatInput({ sendMessage, messages }: ChatInputProps) {
   const [input, setInput] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "0px";
+      const scrollHeight = textareaRef.current.scrollHeight;
+      textareaRef.current.style.height = `${Math.min(scrollHeight, 300)}px`;
+    }
+  }, [input]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!input.trim()) return;
     sendMessage(input);
     setInput("");
+    if (textareaRef.current) {
+      textareaRef.current.style.height = messages?.length ? "70px" : "120px";
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="relative max-w-3xl mx-auto">
-      <Textarea
-        value={input}
-        onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-          setInput(e.target.value)
-        }
-        placeholder="Send a message..."
-        className="min-h-[60px] w-full resize-none bg-secondary/80 border-muted-foreground/20 rounded-lg pr-12 focus-visible:ring-0 focus-visible:ring-offset-0"
-        rows={1}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            handleSubmit(e as any);
+      <div className="relative">
+        <textarea
+          ref={textareaRef}
+          value={input}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            setInput(e.target.value)
           }
-        }}
-      />
-      <Button
-        type="submit"
-        size="icon"
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-secondary hover:bg-secondary/80"
-        disabled={!input.trim()}
-      >
-        <SendHorizontal className="h-4 w-4 text-primary" />
-      </Button>
+          placeholder={`${
+            messages?.length ? "Reply to GiniGPT..." : "Message GiniGPT"
+          }`}
+          className={`${
+            messages?.length ? "min-h-[70px]" : "min-h-[120px]"
+          } max-h-[300px] max-sm:text-sm w-full resize-none bg-secondary/80 border-muted-foreground/20 rounded-lg pr-12 focus-visible:ring-0 focus-visible:ring-offset-0 overflow-y-auto border focus:outline-none p-3 block`}
+          rows={1}
+          style={{
+            lineHeight: "1.5",
+            overflowY: "auto",
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              handleSubmit(e as any);
+            }
+          }}
+        />
+        <Button
+          type="submit"
+          size="icon"
+          className="absolute right-2 top-2"
+          disabled={!input.trim()}
+        >
+          <SendHorizontal className="h-4 w-4" />
+        </Button>
+      </div>
     </form>
   );
 }

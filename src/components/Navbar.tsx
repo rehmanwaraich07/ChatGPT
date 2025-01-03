@@ -4,6 +4,7 @@ import { Menu, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./toggle-mode";
 import React from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -16,10 +17,15 @@ const Navbar = () => {
         >
           <Menu className="h-5 w-5" />
         </Button> */}
-        <Link href="/" className="font-semibold text-lg text-foreground">
-          ProGini
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-semibold text-lg text-foreground"
+        >
+          <Image src="/logo.png" alt="GiniGPT Logo" width={36} height={36} />
+          GiniGPT
         </Link>
       </div>
+
       <div className="flex items-center space-x-2">
         <Button
           variant="outline"
