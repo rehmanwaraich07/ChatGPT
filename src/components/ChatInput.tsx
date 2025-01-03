@@ -72,7 +72,7 @@ export function ChatInput({ sendMessage, messages }: ChatInputProps) {
         </div>
       </form>
       <small className="block text-center mt-2 text-muted-foreground">
-        Presented free by{" "}
+        Powered by{" "}
         <Link
           href={"https://progini.ai"}
           target="_blank"
