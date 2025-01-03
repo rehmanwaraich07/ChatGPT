@@ -74,7 +74,7 @@ export function ChatMessages({
 
   if (!messages.length) {
     return (
-      <div className="flex flex-col h-full items-center justify-center bg-gray-100 dark:bg-gray-800 p-6 rounded-md">
+      <div className="flex flex-col h-full items-center justify-center bg-gray-100 dark:bg-gray-800 p-3 sm:p-6 rounded-md">
         {/* <Image src="/logo.png" alt="GiniGPT Logo" width={40} height={40} /> */}
 
         <p className="text-muted-foreground text-lg font-medium text-center">
