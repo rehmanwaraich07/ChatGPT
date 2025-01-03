@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GiniGPT",
+  title: "AskGini - Free AI Assistant By ProGini",
   description:
-    "GiniGPT is a next generation AI assistant built by ProGini and trained to be safe, accurate, and secure to help you do your best work. ",
+    "AskGini is a next generation AI assistant built by ProGini and trained to be safe, accurate, and secure to help you do your best work. ",
 };
 
 export default function RootLayout({
