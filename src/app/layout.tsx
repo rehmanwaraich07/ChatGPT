@@ -10,8 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PROGINI CHAT APP",
-  description: "A ChatGPT clone built with Next.js and Shadcn",
+  title: "GiniGPT",
+  description:
+    "GiniGPT is a next generation AI assistant built by ProGini and trained to be safe, accurate, and secure to help you do your best work. ",
 };
 
 export default function RootLayout({
