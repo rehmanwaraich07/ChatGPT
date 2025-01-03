@@ -73,8 +73,12 @@ export function ChatInput({ sendMessage, messages }: ChatInputProps) {
       </form>
       <small className="block text-center mt-2 text-muted-foreground">
         Presented free by{" "}
-        <Link href={"https://progini.ai"} className="text-blue-400 font-bold">
-          Progini.ai
+        <Link
+          href={"https://progini.ai"}
+          target="_blank"
+          className="text-blue-400 font-bold hover:underline transition-all"
+        >
+          Progini
         </Link>
       </small>
     </>
