@@ -42,7 +42,7 @@ export function ChatInput({ sendMessage, messages }: ChatInputProps) {
             setInput(e.target.value)
           }
           placeholder={`${
-            messages?.length ? "Reply to GiniGPT..." : "Message GiniGPT"
+            messages?.length ? "Reply to AskGini..." : "Message AskGini"
           }`}
           className={`${
             messages?.length ? "min-h-[70px]" : "min-h-[120px]"

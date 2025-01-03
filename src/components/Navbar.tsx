@@ -21,8 +21,8 @@ const Navbar = () => {
           href="/"
           className="flex items-center gap-2 font-semibold text-lg text-foreground"
         >
-          <Image src="/logo.png" alt="GiniGPT Logo" width={36} height={36} />
-          GiniGPT
+          <Image src="/logo.png" alt="AskGini Logo" width={36} height={36} />
+          AskGini
         </Link>
       </div>
 

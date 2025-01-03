@@ -75,10 +75,10 @@ export function ChatMessages({
   if (!messages.length) {
     return (
       <div className="flex flex-col h-full items-center justify-center bg-gray-100 dark:bg-gray-800 p-3 sm:p-6 rounded-md">
-        {/* <Image src="/logo.png" alt="GiniGPT Logo" width={40} height={40} /> */}
+        {/* <Image src="/logo.png" alt="AskGini Logo" width={40} height={40} /> */}
 
         <p className="text-muted-foreground text-lg font-medium text-center">
-          How can GiniGPT help you today?
+          How can AskGini help you today?
         </p>
 
         <div className="w-full mt-6">
@@ -109,7 +109,7 @@ export function ChatMessages({
           </div>
           <div className="flex-1 space-y-1 overflow-hidden text-left">
             <p className="font-semibold text-sm">
-              {message.role === "user" ? "You" : "GiniGPT"}
+              {message.role === "user" ? "You" : "AskGini"}
             </p>
             <div
               className="prose prose-sm max-sm:text-sm break-words dark:prose-invert"
@@ -131,7 +131,7 @@ export function ChatMessages({
             <MessageSquare className="h-6 w-6 text-gray-600 dark:text-gray-300" />
           </div>
           <div className=" prose prose-sm text-sm break-words dark:prose-invert">
-            GiniGPT is thinking...
+            AskGini is thinking...
           </div>
         </div>
       )}
